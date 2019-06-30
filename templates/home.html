@@ -19,8 +19,12 @@
 
 
     <section id="choix" style="border:1px solid black;height:100px;">
-        <input type='button' value="Créez une adresse Mail" id="choix_button"><br>
-        <input type='button' value="M'Expliquez une page !" id="choix_button" onclick="explique_bébé()">
+
+        <input type='button' value="Créez une adresse Mail !" id="choix_button" onclick="explique_bébé()">
+        <input type='button' value="Se connecter !" id="choix_button">
+        <input type='button' value="Expliquez une page !" id="choix_button">
+
+        
 
 
     </section>
@@ -48,13 +52,12 @@
             <div id="input" style='border:1px solid black;'>
 
                 <div id="explication"></div><br><br>
-                <center><input type='text' placeholder="par exemple: 'http://127.0.0.1:8000/'"
-                    id="input_text_explication"></center><br>
-                <center><input type='button' value="valider" id='button_explication'></center><br>
+                <center><input type='button' value='yahou' id="yahou"></center>
+
+
+
                 
-                
-                <center><input type='text' placeholder="Votre question ?" id="input1"></center><br>
-                <center><input type='button' value="valider" class='button_input'></center>
+
 
             
 
@@ -62,7 +65,7 @@
 
 
 
-https://www.google.fr/
+
 
 
             </div>
@@ -90,9 +93,14 @@ https://www.google.fr/
 
 
 function explique_bébé(){
-    document.getElementById('explication').innerHTML = "<strong>Rentre l'url</strong>";
-    document.getElementById('button_explication').style.display = 'block';
-    document.getElementById('input_text_explication').style.display = 'block';
+
+    var a = "<strong>Choisis un addresse mail</strong>";
+            
+    
+    document.getElementById('explication').innerHTML = a;
+    document.getElementById('yahou').style.display =  'block';
+    
+   
 
     
 };
@@ -107,17 +115,15 @@ function explique_bébé(){
 
 
 
+LISTE = []
 
-
-jQuery("#button_explication").on("click", function(e){
+jQuery("#yahou").on("click", function(e){
     
-
-     var page = document.getElementById('input_text_explication').value;
-     
      e.preventDefault();
       jQuery.ajax({
           data:{
-              'a':page,
+              'a':'yahou',
+              'liste':LISTE,
               csrfmiddlewaretoken:'{{ csrf_token }}'
           },
           type:"POST",
@@ -134,7 +140,7 @@ jQuery("#button_explication").on("click", function(e){
               jQuery("#is_save").html(data.data);
               jQuery("#monCadreAlert");
               document.location.href="/page"
-
+              LISTE.push([data])
               };
           
       });
@@ -146,7 +152,9 @@ jQuery("#button_explication").on("click", function(e){
 
 
 <style>
-
+#yahou{
+    display:none;
+}
 #input{
     width:100%;
     text-align:center;
