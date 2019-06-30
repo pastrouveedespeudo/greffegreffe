@@ -1,6 +1,8 @@
 # greffegreffe
 
-#bah on peut pas faire diframe mais on peut prendre la page ! ca a cassé mon del pas grave
+#ptetre c pas le bon bouton
 
-#ensuite faut redirigé le mec sur une novuelle page (tu copies la source et tu lui affiche) 
+#y'en a 10 000 mais t'en récupere que deux il les faut tous faut reinitialiser le str.find ca en fait qu'un
+
+#et le font size red a fond
 
