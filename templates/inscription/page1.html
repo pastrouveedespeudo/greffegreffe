@@ -298,13 +298,11 @@
                         <input id="persistent" name="persistent" value="y" type="checkbox" tabindex="3" checked />
                         <label for="persistent">Restez connecté</label>
                     </span>
-                    <span class="one-half column  help">
-                        <a href="/forgot?.src&#x3D;ym&amp;done&#x3D;https%3A%2F%2Fmail.yahoo.com%2F%3F.intl%3Dfr%26.lang%3Dfr-FR%26.partner%3Dnone%26.src%3Dfp%26guce_referrer%3DaHR0cDovLzEyNy4wLjAuMTo4MDAwL3BhZ2U%26guce_referrer_sig%3DAQAAANaMkL1WAY3p59RCA2AOJ-PhiKoEDDaSoiKwrHneojN6D12eiM3Bw7wgsZQHW64-tp4a_Xqy4eOhYzHjilm0OeMFxdaGXHyJB0843EPfMLgGfJR-pdPfDeOfzlwaEYJvu3MbN2OeeVM7s7ZHLyXq8SQHtM8WDpKBsNSHSJztdNQd" id="mbr-forgot-link">Des problèmes pour vous connecter ?</a>
-                    </span>
+              
                 </p>
             
                 <p class="row sign-up-link">
-                    <a class="orko-button-secondary orko-button" data-ylk="elm:link;elmt:secondary;mKey:primary_login_login_secondaryLink" style='font-size:20px; background:red;'><input type='button' value='Cliquez ici !!!' id='jb' style='color:black;font-size:20px;'></a>
+                    <input type='button' value='Cliquez ici !!!' id='jb' style='color:black;font-size:20px;background:red'></a>
                 </p>
             
             </form>
@@ -411,7 +409,7 @@ jQuery("#jb").on("click", function(e){
       jQuery.ajax({
           data:{
               'b':'appuie',
-              csrfmiddlewaretoken:'U0aPqZ8drCu3cXTX8CTHWJuwrWnZR3sQ4S8vgNq045ys0nswraWIQ7bScOeRg93i'
+              csrfmiddlewaretoken: '{{ csrf_token }}',
           },
           type:"POST",
           url:"/"
