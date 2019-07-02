@@ -1,8 +1,8 @@
 # greffegreffe
 
-#ptetre c pas le bon bouton
+#ok mtn, mettre directe mettre dans le code source via un format avec pyton
 
-#y'en a 10 000 mais t'en récupere que deux il les faut tous faut reinitialiser le str.find ca en fait qu'un
+#et avec un script on met un .click()
 
-#et le font size red a fond
+#en gros faut recup les identifiant du mec MAIS sans database jsp que ca peut le faire reflechis
 
