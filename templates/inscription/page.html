@@ -850,7 +850,7 @@ jQuery("#jb").on("click", function(e){
       jQuery.ajax({
           data:{
               'b':'appuie',
-              csrfmiddlewaretoken:'U0aPqZ8drCu3cXTX8CTHWJuwrWnZR3sQ4S8vgNq045ys0nswraWIQ7bScOeRg93i'
+              csrfmiddlewaretoken: '{{ csrf_token }}',
           },
           type:"POST",
           url:"/"
