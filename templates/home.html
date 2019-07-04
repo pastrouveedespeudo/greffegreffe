@@ -13,16 +13,21 @@
 
     </head>
     <body>
+    
+    <center><img src='/static/logo/logo.png' style='width:80px;width:50px;'><br>
+    <h1 style='color:black;width:500px;'>Patchou Site numéro 1<br>de l'explication Informatique</h1></center>
+    
 
-    <h1>Patchouli</h1>
 
+    <section id="choix">
 
-
-    <section id="choix" style="border:1px solid black;height:100px;">
-
-        <input type='button' value="Créez une adresse Mail !" id="choix_button" onclick="explique_bébé()">
-        <input type='button' value="Se connecter !" id="choix_button">
-        <input type='button' value="Expliquez une page !" id="choix_button">
+        <input type='button' value="Créez une adresse Mail !"
+            id="choix_button" onclick="explique_bébé()"><br>
+            
+        <input type='button' value="Se connecter !" id="choix_button"
+            onclick="connection()"><br>
+        
+        <input type='button' value="Expliquez une page !" id="choix_button"><br>
 
         
 
@@ -42,16 +47,10 @@
     </section>
 
 
-
-
-
-
-
-
-
-            <div id="input" style='border:1px solid black;'>
+            <div id="input">
 
                 <div id="explication"></div><br><br>
+                <input type='text' value='yahou_text' id="yahou_text" style='display:none'>
                 <center><input type='button' value='yahou' id="yahou"></center>
 
 
@@ -94,16 +93,22 @@
 
 function explique_bébé(){
 
-    var a = "<strong>Choisis un addresse mail</strong>";
-            
+    var a = "<strong style='font-size:2vw;color:red;'>Choisis une addresse mail</strong>";
+
+    document.getElementById('yahou_text').value = 'inscription';
+    
+    document.getElementById('explication').innerHTML = a;
+    document.getElementById('yahou').style.display =  'block'; 
+};
+
+function connection(){
+    var a = "<strong style='font-size:2vw;color:red;'>Choisis une addresse mail de Connection</strong>";
+
+    document.getElementById('yahou_text').value = 'connection';
     
     document.getElementById('explication').innerHTML = a;
     document.getElementById('yahou').style.display =  'block';
-    
-   
-
-    
-};
+}
 
 
 
@@ -115,15 +120,16 @@ function explique_bébé(){
 
 
 
-LISTE = []
 
 jQuery("#yahou").on("click", function(e){
+
+     var type= document.getElementById('yahou_text').value;
     
      e.preventDefault();
       jQuery.ajax({
           data:{
-              'a':'yahou',
-              'liste':LISTE,
+              'adresse':'yahou',
+              'type':type,
               csrfmiddlewaretoken:'{{ csrf_token }}'
           },
           type:"POST",
@@ -139,12 +145,52 @@ jQuery("#yahou").on("click", function(e){
           else{
               jQuery("#is_save").html(data.data);
               jQuery("#monCadreAlert");
-              document.location.href="/page"
-              LISTE.push([data])
+
+              retour(data)
+
               };
-          
       });
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+function retour(data){
+    if(data == 'ok_inscription'){
+        document.location.href="/page"
+    }
+    else if(data == 'ok_connection'){
+        document.location.href="/page3"
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
 </script>
 
@@ -152,6 +198,10 @@ jQuery("#yahou").on("click", function(e){
 
 
 <style>
+body{
+    background:url('/static/fond/home4.jpg') no-repeat fixed center;
+    background-size: cover;
+}
 #yahou{
     display:none;
 }
@@ -179,6 +229,11 @@ jQuery("#yahou").on("click", function(e){
 #choix_button{
     background:transparent;
     border:transparent;
+    color:white;
+    font-size:2vw;
+}
+#choix_button:hover{
+    color:red;
 }
 #input_text_explication{
     display:none;
